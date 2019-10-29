@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+project(TLibTorch)
+
+SET(ENV{CMAKE_PREFIX_PATH} ../libtorch)
+find_package(Torch REQUIRED)
+
+SET(CMAKE_BUILD_TYPE "Release")
+
+include_directories( ../ )
+add_library( TLibTorch TComTorch.cpp)
+
+target_compile_features( TLibTorch PUBLIC cxx_range_for)
+
+target_link_libraries( TLibTorch "${TORCH_LIBRARIES}")
+
+
+#target_include_directories( ${LIB_NAME} TLibCommon .. )
+#target_link_libraries( ${LIB_NAME} TLibCommon )#Threads::Threads )
+
+

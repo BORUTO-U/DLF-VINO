@@ -31,7 +31,7 @@ public:
 		);
 		register_module("conv", conv);
 	}
-	auto forward(Tensor x) {
+	Tensor forward(Tensor x) {
 		return x + conv->forward(x);
 	}
 };
@@ -111,7 +111,7 @@ void print(at::Tensor x)
 {
 	if (!(fout.is_open()))
 		fout.open("pytorch.txt", fout.app);
-	at::print(fout, x, 80i64);
+	at::print(fout, x, (int64_t)80);
 	fout << std::endl;
 }
 
@@ -201,7 +201,8 @@ void pic_cpy(TComPic* pcPic, TComPicYuv* rec_pic, float_t* src, Rect patch, int 
 	}
 }
 
-_declspec(dllexport) void run_model(TComPic* pcPic, TComPicYuv* dstPic)
+//_declspec(dllexport) 
+void run_model(TComPic* pcPic, TComPicYuv* dstPic)
 {
 	TComPicYuv* rec_pic = pcPic->getPicYuvRec();
 	

@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="Placeholder" out_port_id="0"/>
+		<IR id="0" name="Placeholder" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="Placeholder_1" out_port_id="0"/>
+		<IR id="1" name="Placeholder_1" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="concat" out_port_id="0"/>
+		<IR id="2" name="concat" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd" out_port_id="0"/>
+		<IR id="3" name="Conv2D" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="Conv2D_1" out_port_id="0"/>
+		<IR id="4" name="Conv2D_1" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_1" out_port_id="0"/>
+		<IR id="5" name="Conv2D_2" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_2" out_port_id="0"/>
+		<IR id="6" name="Conv2D_3" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="conv2d_transpose" out_port_id="0"/>
+		<IR id="7" name="conv2d_transpose" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv2d_transpose_1" out_port_id="0"/>
+		<IR id="8" name="conv2d_transpose_1" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_3" out_port_id="0"/>
+		<IR id="9" name="conv2d_transpose_2" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="add_6" out_port_id="0"/>
+		<IR id="10" name="add_6" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="concat_1" out_port_id="0"/>
+		<IR id="11" name="concat_1" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_4" out_port_id="0"/>
+		<IR id="12" name="Conv2D_4" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_5" out_port_id="0"/>
+		<IR id="13" name="Conv2D_5" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="Tanh" out_port_id="0"/>
+		<IR id="14" name="Tanh" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="mul_6" out_port_id="0"/>
+		<IR id="15" name="ScaleShift/mul_6" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="add_7" out_port_id="0"/>
+		<IR id="16" name="add_7" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_6" out_port_id="0"/>
+		<IR id="17" name="Conv2D_6" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="Tanh_1" out_port_id="0"/>
+		<IR id="18" name="Tanh_1" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="mul_7" out_port_id="0"/>
+		<IR id="19" name="ScaleShift/mul_7" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="add_8" out_port_id="0"/>
+		<IR id="20" name="add_8" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_7" out_port_id="0"/>
+		<IR id="21" name="Conv2D_7" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_8" out_port_id="0"/>
+		<IR id="22" name="Conv2D_8" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="Tanh_2" out_port_id="0"/>
+		<IR id="23" name="Tanh_2" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="mul_8" out_port_id="0"/>
+		<IR id="24" name="ScaleShift/mul_8" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="add_9" out_port_id="0"/>
+		<IR id="25" name="add_9" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_9" out_port_id="0"/>
+		<IR id="26" name="Conv2D_9" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_10" out_port_id="0"/>
+		<IR id="27" name="Conv2D_10" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="Tanh_3" out_port_id="0"/>
+		<IR id="28" name="Tanh_3" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="mul_9" out_port_id="0"/>
+		<IR id="29" name="ScaleShift/mul_9" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="add_10" out_port_id="0"/>
+		<IR id="30" name="add_10" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_11" out_port_id="0"/>
+		<IR id="31" name="Conv2D_11" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="Tanh_4" out_port_id="0"/>
+		<IR id="32" name="Tanh_4" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="mul_10" out_port_id="0"/>
+		<IR id="33" name="ScaleShift/mul_10" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="add_11" out_port_id="0"/>
+		<IR id="34" name="add_11" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_13" out_port_id="0"/>
+		<IR id="36" name="Conv2D_13" out_port_id="3"/>
+	</map>
+	<map>
+		<framework name="Tanh_5" out_port_id="0"/>
+		<IR id="37" name="Tanh_5" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="mul_11" out_port_id="0"/>
+		<IR id="38" name="mul_11" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="add_12" out_port_id="0"/>
+		<IR id="39" name="add_12" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="add_13" out_port_id="0"/>
+		<IR id="40" name="add_13" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="BiasAdd_12" out_port_id="0"/>
+		<IR id="35" name="Conv2D_12" out_port_id="3"/>
+	</map>
+</mapping>
