@@ -12,13 +12,15 @@ from torch.nn import functional
 from torchvision import models
 # import model
 from model import Module
+import sys
 
 pretrained = None
 #os.environ["CUDA_VISIBLE_DEVICES"] ='2'
 gpu=[0]
-width = 480
-height = 320
-img_dir = 'HM_Datasets/SR/BSDS_480x320_ai_qp32/'
+
+img_dir = sys.argv[1]
+width = int(sys.argv[2])
+height = int(sys.argv[3]) 
 
 class SrDataset(torch.utils.data.Dataset):
     def __init__(self, phase, width, height, img_dir):
