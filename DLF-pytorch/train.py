@@ -16,7 +16,7 @@ import sys
 
 pretrained = None
 #os.environ["CUDA_VISIBLE_DEVICES"] ='2'
-gpu=[0]
+#gpu=[0]
 
 img_dir = sys.argv[1]
 width = int(sys.argv[2])
@@ -85,14 +85,8 @@ loss=nn.MSELoss()
 optimizer = torch.optim.Adam(module.parameters(), lr=1)
 #optimizer = nn.DataParallel(optimizer,gpu).module
 
-''''''
 lam = torch.tensor(0.025).cuda()
-lam = torch.autograd.variable(lam, requires_grad=True)
-optimizer_lam = torch.optim.Adam([lam],lr=3e-4)
-lam.backward()
-optimizer.zero_grad()
-lam.requires_grad_(False)
-''''''
+
 height -= 28
 width -= 28
 
@@ -140,49 +134,13 @@ for stage in ([0]):
                         gv = y0[:, :, 0:height-1, 0:width-1] - y0[:, :, 1:height, 0:width-1]
                         guv = torch.cat((gu, gv),1)
                         a_var = guv.abs().mean()
-                        '''
-                        (a_var.exp() * lam).backward()
-                        gr = []
-                        for param in module.parameters():
-                            if param.grad.data.abs().mean() < (0.05/lr):
-                                gr += [param.grad.data / lam]
-                            else:
-                                print('fly!')
-                                gr = None
-                                optimizer.zero_grad()
-                                break
-                        ''''''
-                        y0 = module(x)
-                        '''
+                        
                         L = (loss(y0, t) + (a_var * lam)).exp()
                         L.backward()
 
                         y = y0.data
-
                         optimizer.step()
-                        '''
-                        for batchv, data in enumerate(dataloader['valid'], 1):
-                            optimizer.zero_grad()
-                            x, tv, _ = data
-                            if use_gpu:
-                                x = x.cuda()
-                                tv = tv.cuda()
-                            batch_size = batch_sz['valid']
-                            y0 = module(x)
-                            loss(y0, tv).backward()
-                            optimizer_lam.zero_grad()
-                            if gr is None:
-                                break
-                            else:
-                                for pa_idx,param in enumerate(module.parameters(),0):
-                                    lam.grad -= (param.grad.data*gr[pa_idx]).sum()
-                            optimizer_lam.step()
-                            if lam.abs() < 0.5:
-                                break
-                            else:
-                                lam[:] = 0.02
-                                break
-                        '''
+                        
                 else:
                     y = module(x)
 
@@ -201,7 +159,7 @@ for stage in ([0]):
             mse = running_dist / (y.data.cpu().numpy().size*batch)
             psnr = 10*((255*255/mse).log() / tensor(10.).log().cuda())
             print('running psnr: {:.4f}\n'.format(psnr))
-            print('lambda:{}'.format(lam))
+            
         torch.save(module.state_dict(), './autosave/module.pth')
         torch.save(optimizer.state_dict(),'./autosave/optimizer.pth')
         torch.save(optimizer_lam.state_dict(), './autosave/optimizer_lam.pth')
